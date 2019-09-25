@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/lyt_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:clickable="true"
     android:minHeight="?attr/actionBarSize"
     android:orientation="horizontal">
@@ -40,7 +40,7 @@
                 android:textColor="@color/grey_90" />
 
             <TextView
-                android:id="@+id/description"
+                android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_medium"
