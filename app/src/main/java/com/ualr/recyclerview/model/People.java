@@ -5,8 +5,20 @@ import android.graphics.drawable.Drawable;
 /**
  * Created by irconde on 2019-09-25.
  */
+// TODO 02: Modify People class. Extend from Item abstract class and set section value
 public class People extends Item{
     private int image;
+    private String name;
+    private Drawable imageDrw;
+    private String email;
+
+    public String getName(){
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getImage() {
         return image;
@@ -32,10 +44,8 @@ public class People extends Item{
         this.email = email;
     }
 
-    private Drawable imageDrw;
-    private String email;
-
     public People() {
+        this.section = false;
     }
 
     public People(String name) {

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 
 import com.ualr.recyclerview.R;
+import com.ualr.recyclerview.model.Item;
 import com.ualr.recyclerview.model.People;
 import com.ualr.recyclerview.utils.Tools;
 
@@ -23,8 +24,8 @@ public class DataGenerator {
      * @param ctx android context
      * @return list of object
      */
-    public static List<People> getPeopleData(Context ctx) {
-        List<People> items = new ArrayList<>();
+    public static List<Item> getPeopleData(Context ctx) {
+        List<Item> items = new ArrayList<>();
         TypedArray drw_arr = ctx.getResources().obtainTypedArray(R.array.people_images);
         String name_arr[] = ctx.getResources().getStringArray(R.array.people_names);
 
@@ -36,6 +37,14 @@ public class DataGenerator {
             obj.setImageDrw(ctx.getResources().getDrawable(obj.getImage()));
             items.add(obj);
         }
+        Collections.shuffle(items);
+        return items;
+    }
+
+    public static List<String> getStringsMonth(Context ctx) {
+        List<String> items = new ArrayList<>();
+        String arr[] = ctx.getResources().getStringArray(R.array.month);
+        for (String s : arr) items.add(s);
         Collections.shuffle(items);
         return items;
     }

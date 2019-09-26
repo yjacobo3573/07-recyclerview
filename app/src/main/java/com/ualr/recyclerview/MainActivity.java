@@ -10,7 +10,9 @@ import android.view.View;
 
 import com.ualr.recyclerview.adapter.AdapterListBasic;
 import com.ualr.recyclerview.data.DataGenerator;
+import com.ualr.recyclerview.model.Item;
 import com.ualr.recyclerview.model.People;
+import com.ualr.recyclerview.model.SectionHeader;
 
 import java.util.List;
 
@@ -29,9 +31,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        List<People> items = DataGenerator.getPeopleData(this);
+        List<Item> items = DataGenerator.getPeopleData(this);
         items.addAll(DataGenerator.getPeopleData(this));
         items.addAll(DataGenerator.getPeopleData(this));
+
+        // TODO 04. We create groups with 5 people in each one
+        int sect_count = 0;
+        int sect_idx = 0;
+        List<String> months = DataGenerator.getStringsMonth(this);
+        for (int i = 0; i < items.size() / 6; i++) {
+            items.add(sect_count, new SectionHeader(months.get(sect_idx)));
+            sect_count = sect_count + 5;
+            sect_idx++;
+        }
 
         mAdapter = new AdapterListBasic(this, items);
 
