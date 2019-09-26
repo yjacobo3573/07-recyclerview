@@ -33,10 +33,10 @@ public class DataGenerator {
 
         for (int i = 0; i < drw_arr.length(); i++) {
             People obj = new People();
-            obj.image = drw_arr.getResourceId(i, -1);
-            obj.name = name_arr[i];
-            obj.email = Tools.getEmailFromName(obj.name);
-            obj.imageDrw = ctx.getResources().getDrawable(obj.image);
+            obj.setImage(drw_arr.getResourceId(i, -1));
+            obj.setName(name_arr[i]);
+            obj.setEmail(Tools.getEmailFromName(obj.getName()));
+            obj.setImageDrw(ctx.getResources().getDrawable(obj.getImage()));
             items.add(obj);
         }
         Collections.shuffle(items);

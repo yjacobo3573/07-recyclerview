@@ -68,11 +68,11 @@ public class AdapterListBasic extends RecyclerView.Adapter{
         // Load information regarding a specific person from people collection
         People p = mItems.get(position);
         // Populate the corresponding TextView
-        viewHolder.name.setText(p.name);
+        viewHolder.name.setText(p.getName());
         // Populate the corresponding ImageView.
         // TODO 21: We can use the glide library just to make the scrolling faster and smoother
         //viewHolder.image.setImageResource(p.image);
-        Tools.displayImageRound(mContext, viewHolder.image, p.image);
+        Tools.displayImageRound(mContext, viewHolder.image, p.getImage());
     }
 
     // TODO 22: We add the getItemCount method
