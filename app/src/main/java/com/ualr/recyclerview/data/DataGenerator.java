@@ -41,11 +41,5 @@ public class DataGenerator {
         return items;
     }
 
-    public static List<String> getStringsMonth(Context ctx) {
-        List<String> items = new ArrayList<>();
-        String arr[] = ctx.getResources().getStringArray(R.array.month);
-        for (String s : arr) items.add(s);
-        Collections.shuffle(items);
-        return items;
-    }
+
 }

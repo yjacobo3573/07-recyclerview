@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 /**
  * Created by irconde on 2019-09-25.
  */
-// TODO 02: Modify People class. Extend from Item abstract class and set section value
 public class People extends Item{
     private int image;
     private String name;

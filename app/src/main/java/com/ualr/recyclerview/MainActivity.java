@@ -8,20 +8,26 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.ualr.recyclerview.adapter.AdapterListBasic;
 import com.ualr.recyclerview.data.DataGenerator;
 import com.ualr.recyclerview.model.Item;
 import com.ualr.recyclerview.model.People;
 import com.ualr.recyclerview.model.SectionHeader;
+import com.ualr.recyclerview.utils.Tools;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final int DEFAULT_POS = 2;
 
     private RecyclerView recyclerView;
     private AdapterListBasic mAdapter;
+    private List<Item> mDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,21 +37,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        List<Item> items = DataGenerator.getPeopleData(this);
-        items.addAll(DataGenerator.getPeopleData(this));
-        items.addAll(DataGenerator.getPeopleData(this));
+        mDataSource = DataGenerator.getPeopleData(this);
 
-        // TODO 04. We create groups with 5 people in each one
-        int sect_count = 0;
-        int sect_idx = 0;
-        List<String> months = DataGenerator.getStringsMonth(this);
-        for (int i = 0; i < items.size() / 6; i++) {
-            items.add(sect_count, new SectionHeader(months.get(sect_idx)));
-            sect_count = sect_count + 5;
-            sect_idx++;
-        }
-
-        mAdapter = new AdapterListBasic(this, items);
+        mAdapter = new AdapterListBasic(this, mDataSource);
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setAdapter(mAdapter);
@@ -53,10 +47,19 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+        // TODO 05: Invoke the removeItem method
         mAdapter.setOnItemClickListener(new AdapterListBasic.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, People obj, int position) {
-                Log.d(TAG, String.format("The user has tapped on %s", obj.getName()));
+            public void onItemClick(int position) {
+            }
+        });
+
+        FloatingActionButton addBtn = findViewById(R.id.floating_action_button);
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO 09: Invoke adapter's addItem method to add new item to the recyclerview
+                // TODO 10: Scroll to newly added item position
             }
         });
     }
