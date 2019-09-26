@@ -15,9 +15,6 @@ import java.util.List;
  * Created by irconde on 2019-09-25.
  */
 
-// TODO 01. We are using the DataGenerator as data source. It supplies RecyclerView with item content. Specifically it generates a people collection
-// Each person is represented by an instance of People class, which encloses the name, the image id, the image drawable and the email of that person
-
 public class DataGenerator {
 
     /**
