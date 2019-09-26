@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new AdapterListBasic.OnItemClickListener() {
             @Override
             public void onItemClick(View view, People obj, int position) {
-                Log.d(TAG, String.format("The user has tapped on %s", obj.name));
+                Log.d(TAG, String.format("The user has tapped on %s", obj.getName()));
             }
         });
     }
