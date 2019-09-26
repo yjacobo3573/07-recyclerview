@@ -25,16 +25,12 @@ public class AdapterListBasic extends RecyclerView.Adapter{
     private List<People> mItems;
     private Context mContext;
 
-    // TODO 03: We define a new attribute using the created interface
     private OnItemClickListener mOnItemClickListener;
-
-    // TODO 02: We define an interface to communicate the Adapter and the Activity/Fragment
 
     public interface OnItemClickListener {
         void onItemClick(View view, People obj, int position);
     }
 
-    // TODO 04: We define the set method
     public void setOnItemClickListener(final OnItemClickListener mItemClickListener) {
         this.mOnItemClickListener = mItemClickListener;
     }
@@ -58,14 +54,12 @@ public class AdapterListBasic extends RecyclerView.Adapter{
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
         PersonViewHolder viewHolder = (PersonViewHolder)holder;
         final People p = mItems.get(position);
-        viewHolder.name.setText(p.name);
+        viewHolder.name.setText(p.getName());
         //viewHolder.image.setImageResource(p.image);
-        Tools.displayImageRound(mContext, viewHolder.image, p.image);
-        // TODO 01: Handle click on RecyclerView items
+        Tools.displayImageRound(mContext, viewHolder.image, p.getImage());
         viewHolder.lyt_parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO 06: We invoke the onItemClick method of the listener
                 mOnItemClickListener.onItemClick(view, mItems.get(position), position);
             }
         });

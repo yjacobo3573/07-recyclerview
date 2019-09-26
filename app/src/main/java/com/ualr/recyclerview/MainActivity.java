@@ -41,11 +41,10 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        // TODO 05: We plug a new listener in the adapter
         mAdapter.setOnItemClickListener(new AdapterListBasic.OnItemClickListener() {
             @Override
             public void onItemClick(View view, People obj, int position) {
-                Log.d(TAG, String.format("The user has tapped on %s", obj.name));
+                Log.d(TAG, String.format("The user has tapped on %s", obj.getName()));
             }
         });
     }
