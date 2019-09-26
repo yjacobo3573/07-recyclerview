@@ -57,10 +57,10 @@ public class AdapterListBasic extends RecyclerView.Adapter{
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
         PersonViewHolder viewHolder = (PersonViewHolder)holder;
-        final People p = mItems.get(position);
-        viewHolder.name.setText(p.name);
+        People p = mItems.get(position);
+        viewHolder.name.setText(p.getName());
         //viewHolder.image.setImageResource(p.image);
-        Tools.displayImageRound(mContext, viewHolder.image, p.image);
+        Tools.displayImageRound(mContext, viewHolder.image, p.getImage());
         // TODO 01: Handle click on RecyclerView items
         viewHolder.lyt_parent.setOnClickListener(new View.OnClickListener() {
             @Override
