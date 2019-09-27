@@ -153,7 +153,7 @@ public class AdapterListBasic extends RecyclerView.Adapter{
 
         @Override
         public void onClick(View view) {
-            mOnItemClickListener.onItemClick(getAdapterPosition());
+            mOnItemClickListener.onItemClick(getLayoutPosition());
         }
     }
 
