@@ -90,7 +90,7 @@ public class AdapterListBasic extends RecyclerView.Adapter{
                 @Override
                 public void onClick(View view) {
                     // TODO 06: We invoke the onItemClick method of the listener
-                    mOnItemClickListener.onItemClick(view, mItems.get(getAdapterPosition()), getAdapterPosition());
+                    mOnItemClickListener.onItemClick(view, mItems.get(getLayoutPosition()), getLayoutPosition());
                 }
             });
         }
