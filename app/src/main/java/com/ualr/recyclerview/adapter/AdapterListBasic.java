@@ -45,17 +45,43 @@ public class AdapterListBasic extends RecyclerView.Adapter{
         this.mContext = context;
     }
 
+    // TODO 01: Define the removeItem method
     public void removeItem(int position) {
         if (position >= mItems.size()){
             return;
         }
+        // TODO 02: Remove the item from the data set
         mItems.remove(position);
+        /**
+         * Notify any registered observers that the item previously located at position
+         * has been removed from the data set. The items previously located at and
+         * after position may now be found at oldPosition - 1.
+         *
+         * This is a structural change event. Representations of other existing items
+         * in the data set are still considered up to date and will not be rebound,
+         * though their positions may be altered.
+         */
+        // TODO 03: Notify the adapter that a item has been removed
         notifyItemRemoved(position);
+
+        /**
+         * Notify any registered observers that the itemCount items starting at
+         * position positionStart have changed. Equivalent to calling
+         * notifyItemRangeChanged(position, itemCount, null);.
+         *
+         * This is an item change event, not a structural change event. It indicates
+         * that any reflection of the data in the given position range is out of date
+         * and should be updated. The items in the given range retain the same identity.
+         */
+        // TODO 04: Notify the adapter that a set of items has changed
         notifyItemRangeChanged(position, getItemCount());
     }
 
+    // TODO 06: Define the addItem method
     public void addItem(int position, Item item) {
+        // TODO 07: Add new item to the data set at the provided position
         mItems.add(position, item);
+        // TODO 08: Notify the adapter that an item inserted
         notifyItemInserted(position);
     }
 

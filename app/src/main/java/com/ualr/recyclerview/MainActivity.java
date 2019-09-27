@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+        // TODO 05: Invoke the removeItem method
         mAdapter.setOnItemClickListener(new AdapterListBasic.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
@@ -58,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // TODO 09: Invoke adapter's addItem method to add new item to the recyclerview
                 mAdapter.addItem(DEFAULT_POS, mDataSource.get(Tools.getRandomNumberInRange(0, mDataSource.size()-1)));
+                // TODO 10: Scroll to newly added item position
                 recyclerView.scrollToPosition(DEFAULT_POS);
             }
         });
