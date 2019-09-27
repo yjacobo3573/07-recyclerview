@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         items.addAll(DataGenerator.getPeopleData(this));
         items.addAll(DataGenerator.getPeopleData(this));
 
-        // TODO 04. We create groups with 5 people in each one
         int sect_count = 0;
         int sect_idx = 0;
         List<String> months = DataGenerator.getStringsMonth(this);

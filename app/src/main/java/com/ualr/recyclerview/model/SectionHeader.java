@@ -4,7 +4,6 @@ package com.ualr.recyclerview.model;
  * Created by irconde on 2019-09-26.
  */
 
-// TODO 03: Create a class that extends from Item class
 public class SectionHeader extends Item {
     private String label;
 
