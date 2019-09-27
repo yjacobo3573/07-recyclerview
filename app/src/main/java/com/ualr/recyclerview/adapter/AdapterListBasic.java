@@ -61,14 +61,6 @@ public class AdapterListBasic extends RecyclerView.Adapter{
         viewHolder.name.setText(p.getName());
         //viewHolder.image.setImageResource(p.image);
         Tools.displayImageRound(mContext, viewHolder.image, p.getImage());
-        // TODO 01: Handle click on RecyclerView items
-        viewHolder.lyt_parent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // TODO 06: We invoke the onItemClick method of the listener
-                mOnItemClickListener.onItemClick(view, mItems.get(position), position);
-            }
-        });
     }
 
     @Override
@@ -93,6 +85,14 @@ public class AdapterListBasic extends RecyclerView.Adapter{
             image = v.findViewById(R.id.image);
             name = v.findViewById(R.id.name);
             lyt_parent = v.findViewById(R.id.lyt_parent);
+            // TODO 01: Handle click on RecyclerView items
+            lyt_parent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // TODO 06: We invoke the onItemClick method of the listener
+                    mOnItemClickListener.onItemClick(view, mItems.get(getAdapterPosition()), getAdapterPosition());
+                }
+            });
         }
     }
 }
