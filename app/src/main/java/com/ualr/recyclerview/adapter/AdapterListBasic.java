@@ -33,7 +33,7 @@ public class AdapterListBasic extends RecyclerView.Adapter{
     private OnItemClickListener mOnItemClickListener;
 
     public interface OnItemClickListener {
-        void onItemClick(View view, People obj, int position);
+        void onItemClick(int position);
     }
 
     public void setOnItemClickListener(final OnItemClickListener mItemClickListener) {
@@ -43,6 +43,20 @@ public class AdapterListBasic extends RecyclerView.Adapter{
     public AdapterListBasic(Context context, List<Item> items) {
         this.mItems = items;
         this.mContext = context;
+    }
+
+    public void removeItem(int position) {
+        if (position >= mItems.size()){
+            return;
+        }
+        mItems.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, getItemCount());
+    }
+
+    public void addItem(int position, Item item) {
+        mItems.add(position, item);
+        notifyItemInserted(position);
     }
 
     @Override
@@ -78,12 +92,6 @@ public class AdapterListBasic extends RecyclerView.Adapter{
             People person = (People) item;
             viewHolder.name.setText(person.getName());
             Tools.displayImageRound(mContext, viewHolder.image, person.getImage());
-            viewHolder.lyt_parent.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mOnItemClickListener.onItemClick(view, (People) mItems.get(position), position);
-                }
-            });
         } else {
             // Instance of SectionHeaderViewHolder
             SectionHeaderViewHolder viewHolder = (SectionHeaderViewHolder) holder;
@@ -97,7 +105,7 @@ public class AdapterListBasic extends RecyclerView.Adapter{
         return this.mItems.size();
     }
 
-    public class PersonViewHolder extends RecyclerView.ViewHolder {
+    public class PersonViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView image;
         public TextView name;
         public View lyt_parent;
@@ -114,6 +122,12 @@ public class AdapterListBasic extends RecyclerView.Adapter{
             image = v.findViewById(R.id.image);
             name = v.findViewById(R.id.name);
             lyt_parent = v.findViewById(R.id.lyt_parent);
+            lyt_parent.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            mOnItemClickListener.onItemClick(getAdapterPosition());
         }
     }
 
