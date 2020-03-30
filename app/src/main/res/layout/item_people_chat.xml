@@ -6,5 +6,5 @@
     android:clickable="true"
     android:minHeight="?attr/actionBarSize"
     android:orientation="horizontal">
-    <!--TODO 15: We need to define the layout used for each item in the RecyclerView -->
+    <!--TODO 14: We need to define the layout used for each item in the RecyclerView -->
 </LinearLayout>

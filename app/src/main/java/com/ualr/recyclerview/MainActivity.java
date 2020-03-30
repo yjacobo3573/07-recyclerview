@@ -16,11 +16,12 @@ public class MainActivity extends AppCompatActivity {
     private void initRecyclerView() {
         // TODO 06: Prepare the data source
 
-        // TODO 07: Instantiate the adapter and pass its data source.
-        // TODO 10: Create the new AdapterListBasic class
+        // TODO 07: Get a reference to the RecyclerView in the layout
 
-        // TODO 08: Get our RecyclerView layout and plug the adapter into the RecyclerView
+        // TODO 08: Create a LayoutManager and plug it into RecyclerView
 
-        // TODO 09: Define the LayoutManager and plug it into RecyclerView
+        // TODO 09: Create a new adapter class: AdapterListBasic class
+
+        // TODO 22: Instantiate the adapter (pass its data source) and plug the new instance into the RecyclerView.
     }
 }
