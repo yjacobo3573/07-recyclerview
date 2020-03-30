@@ -20,42 +20,42 @@ import java.util.List;
  * Created by irconde on 2019-09-25.
  */
 
-// TODO 11: The new Adapter class must be derived from RecyclerView.Adapter.
+// TODO 10: The new Adapter class must be derived from RecyclerView.Adapter.
 // We will have to implement the onCreateViewHolder, onBindViewHolder, and getItemCount methods from the RecyclerView.Adapter class
 
 public class AdapterListBasic extends RecyclerView.Adapter{
 
-    // TODO 12: Define a variable that will contain the data source that is passed into the constructor
+    // TODO 11: Define a variable that will contain the data source that is passed into the constructor
     private List<People> mItems;
     private Context mContext;
 
     public AdapterListBasic(Context context, List<People> items) {
-        // TODO 13: The constructor copies the people collection to the corresponding variable
+        // TODO 12: The constructor copies the people collection to the corresponding variable
         this.mItems = items;
         this.mContext = context;
     }
 
-    // TODO 14: Add the onCreateViewHolder method
+    // TODO 13: Add the onCreateViewHolder method
     // This method is called by the layout manager when the RecyclerView needs a new view holder to represent an item
     // So,it inflates the item view from the view's layout file and wraps the view in a new ViewHolder instance
-    // TODO 15: We need to define the layout used for each item in the RecyclerView
-    // TODO 16: We also need to define the ViewHolder class, used to hold a reference to the different widgets within each row item
+    // TODO 14: We need to define the layout used for each item in the RecyclerView
+    // TODO 15: We also need to define the ViewHolder class, used to hold a reference to the different widgets within each row item
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        // TODO 17: We implement the onCreateViewHolder method
+        // TODO 16: We implement the onCreateViewHolder method
         RecyclerView.ViewHolder vh;
-        // TODO 18: Inflate the view for a row item
+        // TODO 17: Inflate the view for a row item
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_people_chat, parent, false);
-        // TODO 19: Create a ViewHolder to hold view references inside the view
+        // TODO 18: Create a ViewHolder to hold view references inside the view
         vh = new PersonViewHolder(itemView);
         // The resulting view holder instance is returned back to the called (the layout manager)
         return vh;
     }
 
-    // TODO 20: Add the onBindViewHolder method
+    // TODO 19: Add the onBindViewHolder method
     // This method is called when the layout manager is ready to display a particular view in the Recycler's view
     // visible screen area
     // Basically, the method fills the item at the specified row position with content from the data source
@@ -70,19 +70,19 @@ public class AdapterListBasic extends RecyclerView.Adapter{
         // Populate the corresponding TextView
         viewHolder.name.setText(p.getName());
         // Populate the corresponding ImageView.
-        // TODO 21: We can use the glide library just to make the scrolling faster and smoother
+        // TODO 20: We can use the glide library just to make the scrolling faster and smoother
         //viewHolder.image.setImageResource(p.image);
         Tools.displayImageRound(mContext, viewHolder.image, p.getImage());
     }
 
-    // TODO 22: We add the getItemCount method
+    // TODO 21: We add the getItemCount method
     // It returns the number of items in the data collection
     @Override
     public int getItemCount() {
         return this.mItems.size();
     }
 
-    // TODO 16: Typically, we'll define the ViewHolder class as an inner class
+    // TODO 15: Typically, we'll define the ViewHolder class as an inner class
     // Each instance holds references to the ImageView and TextView of an associated row item
     public class PersonViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;

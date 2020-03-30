@@ -30,16 +30,18 @@ public class MainActivity extends AppCompatActivity {
         items.addAll(DataGenerator.getPeopleData(this));
         items.addAll(DataGenerator.getPeopleData(this));
 
-        // TODO 07: Instantiate the adapter and pass its data source.
-        // TODO 10: Create the new AdapterListBasic class
-        mAdapter = new AdapterListBasic(this, items);
+        // TODO 07: Get a reference to the RecyclerView
+        recyclerView = findViewById(R.id.recyclerView);
 
-        // TODO 08: Get our RecyclerView layout and plug the adapter into the RecyclerView
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setAdapter(mAdapter);
-
-        // TODO 09: Define the LayoutManager and plug it into RecyclerView
+        // TODO 08: Create a new LayoutManager and plug it into the RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+
+        // TODO 09: Create a new adapter class: AdapterListBasic class
+
+        // TODO 22: Instantiate the adapter (pass its data source) and plug the new instance in the recyclerView
+        mAdapter = new AdapterListBasic(this, items);
+        recyclerView.setAdapter(mAdapter);
+
     }
 }
