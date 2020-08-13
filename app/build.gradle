@@ -32,6 +32,6 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     // TODO 02: Add recyclerview library dependency to the project
-    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta04'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha05'
 
 }
