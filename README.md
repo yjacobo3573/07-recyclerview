@@ -1,12 +1,16 @@
-# Introduction to Android RecyclerView 
+# Lists in Android with RecyclerView
 
-This project contains code regarding the basic use of the RecyclerView class. In the project you'll find the following branches: 
+Android project used as introduction to RecyclerView, as part of the elective course &quot;CPSC-3367 Mobile Apps Development&quot; from UA Little Rock
 
-* basic-recyclerview: This branch contains the code relative to the definition and basic use of a RecyclerView element
-* basic-recyclerview-starter: Following the TODO comments you'll can get a result very similar to the one available in basic-recyclerview
-* click-handling-recyclerview: This branch contains the code necessary to handle click events on RecyclerView items
-* click-handling-recyclerview-starter: Following the TODO comments you'll can get a result very similar to the one available in click-handling-recyclerview
-* sectioned-recyclerview: This branch contains the code necessary to define different sections and the corresponding section headers in a RecyclerView-based list
-* sectioned-recyclerview-starter: Following the TODO comments you'll can get a result very similar to the one available in sectioned-recyclerview
-* changes-recyclerview: This branch contains the code necessary to add and remote items in a RecyclerView-based list
-* changes-recyclerview-starter: Following the TODO comments you'll can get a result very similar to the one available in changes-recyclerview
+## Description
+
+Simple app used to illustrate the use of the RecyclerView class to create a efficent lists in Android
+
+## Branches
+
+- 1-basic-recyclerview-starter. Following the TODO comments you will be able to get a result very similar to the one available in branch 2-basic-recyclerview.
+- 2-basic-recyclerview. It contains the code relative to the definition and basic use of a RecyclerView component to display a list of items.
+- 3-click-handling-recyclerview-starter. Following the TODO comments you&#39;ll can get a result very similar to the one available in branch 4-click-handling-recyclerview.
+- 4-click-handling-recyclerview. It contains the code necessary to handle click events on RecyclerView items.
+- 5-changes-recyclerview-starter. Following the TODO comments you&#39;ll can get a result very similar to the one available in 6-changes-recyclerview.
+- 6-changes-recyclerview. It contains the code necessary to add and remove items in a RecyclerView-based list.
