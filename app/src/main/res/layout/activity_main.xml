@@ -14,4 +14,11 @@
     disabled because it takes up memory. So why is it useful? Because using a drawing cache make your
     animation smooth compared to redrawing the view at every frame. -->
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:scrollingCache="true"
+       />
 </androidx.constraintlayout.widget.ConstraintLayout>
