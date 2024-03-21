@@ -49,9 +49,32 @@ public class AdapterListBasic extends RecyclerView.Adapter{
     // TODO 02: Remove the item from the data set
     // TODO 03: Notify the adapter that a item has been removed
     // TODO 04: Notify the adapter that a set of items has changed
+     public void removeItem(int position)
+    {
+        if(position>= mItems.size())   // if the position is -1 -2 it doesn't exist, so we can't remove it
+        {
+            return;
+        }
+        mItems.remove(position);
+        notifyItemRemoved(position);
+        //Because we have removed an object now the other objects move down
+        //by one which means they're going to change, so we must notify
+        //the adapter about this change
+        notifyItemRangeChanged(position, getItemCount());
+        //getItemCount returns the size of the list
+    }
+
+
     // TODO 06: Define the addItem method
     // TODO 07: Add new item to the data set at the provided position
     // TODO 08: Notify the adapter that an item inserted
+    //Item item represents List<Item> mItems items stored in the data list
+    public void addItem(int position, Item item)
+    {
+        mItems.add(position,item);
+        notifyItemInserted(position);
+    }
+
 
     @Override
     public int getItemViewType(int position) {

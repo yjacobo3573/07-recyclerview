@@ -11,6 +11,7 @@ import com.ualr.recyclerview.adapter.AdapterListBasic;
 import com.ualr.recyclerview.data.DataGenerator;
 import com.ualr.recyclerview.model.Item;
 import com.ualr.recyclerview.databinding.ActivityMainBinding;
+import com.ualr.recyclerview.utils.Tools;
 
 import java.util.List;
 
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new AdapterListBasic.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
+                mAdapter.removeItem(position);
             }
         });
 
@@ -50,8 +52,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // TODO 09: Invoke adapter's addItem method to add new item to the recyclerview
+                mAdapter.addItem(DEFAULT_POS,mDataSource.get(Tools.getRandomNumberInRange(0, mDataSource.size()-1)));
+                //Default_Pos is a tag defined above with position 2
+                //mDataSource= DataGenerator.getPeopleData(this);
+                //gets the items data photos and name
                 // TODO 10: Scroll to newly added item position
+                mBinding.recyclerView.scrollToPosition(DEFAULT_POS);
+
             }
         });
+
     }
 }
