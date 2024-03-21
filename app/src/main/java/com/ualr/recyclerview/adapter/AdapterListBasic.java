@@ -22,19 +22,31 @@ import java.util.List;
 
 public class AdapterListBasic extends RecyclerView.Adapter{
 
-    private List<People> mItems;
+    private List<People> mItems; //all the items were using to populate the list are in this list
     private Context mContext;
 
-    // TODO 03: We define a new attribute using the created interface
 
-    // TODO 02: We define an interface to communicate the Adapter and the Activity/Fragment
 
+
+// TODO 02: We define an interface to communicate the Adapter and the Activity/Fragment
+
+public interface OnItemClickListener
+{
+    void onItemClick(View view, People obj, int position);
+}
+// TODO 03: We define a new attribute using the created interface
+    private OnItemClickListener mListener;
     // TODO 04: We define the set method
+    public void setOnItemClickListener(final OnItemClickListener itemClickListener)
+    {
+        this.mListener= itemClickListener;
+    }
 
     public AdapterListBasic(Context context, List<People> items) {
         this.mItems = items;
         this.mContext = context;
     }
+
 
     @NonNull
     @Override
@@ -79,6 +91,12 @@ public class AdapterListBasic extends RecyclerView.Adapter{
             image = v.findViewById(R.id.image);
             name = v.findViewById(R.id.name);
             lyt_parent = v.findViewById(R.id.lyt_parent);
+            lyt_parent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) { //View v is the view typed by the listener
+                 mListener.onItemClick(v, mItems.get(getAbsoluteAdapterPosition()), getAbsoluteAdapterPosition());
+                }
+            });
         }
     }
 }
